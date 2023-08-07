@@ -11,14 +11,14 @@ public class Employee {
     private String name;
     private String phoneNumber;
     private String department;
-    private boolean workingStatus;
+    private boolean isWorkingStatus;
 
-    public Employee(Integer id, String name, String phoneNumber, String department, boolean workingStatus) {
+    public Employee(Integer id, String name, String phoneNumber, String department, boolean isWorkingStatus) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.department = department;
         this.id = id;
-        this.workingStatus = workingStatus;
+        this.isWorkingStatus = isWorkingStatus;
     }
 
     public Employee() {
@@ -57,11 +57,11 @@ public class Employee {
     }
 
     public boolean isWorkingStatus() {
-        return workingStatus;
+        return isWorkingStatus;
     }
 
     public void setWorkingStatus(boolean workingStatus) {
-        this.workingStatus = workingStatus;
+        isWorkingStatus = workingStatus;
     }
 
     @Override
@@ -69,12 +69,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return workingStatus == employee.workingStatus && Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(department, employee.department);
+        return isWorkingStatus == employee.isWorkingStatus && Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(department, employee.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, phoneNumber, department, workingStatus);
+        return Objects.hash(id, name, phoneNumber, department, isWorkingStatus);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", department='" + department + '\'' +
-                ", workingStatus=" + workingStatus +
+                ", isWorkingStatus=" + isWorkingStatus +
                 '}';
     }
 }

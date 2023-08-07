@@ -1,4 +1,5 @@
 package com.employeemanagementsystem.dto;
 
-public class NewEmployeeRequest {
+public record NewEmployeeRequest(String name, String phoneNumber, String department, boolean isWorkingStatus) {
+
 }
