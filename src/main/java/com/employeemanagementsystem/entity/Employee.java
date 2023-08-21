@@ -7,10 +7,17 @@ import java.util.Objects;
 @Entity
 public class Employee {
     @Id
+    @SequenceGenerator(name = "employee_id_sequence", sequenceName = "employee_id_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_sequence")
     private Integer id;
+
+    //@Column(name = "name")
     private String name;
+    @Column(name = "phoneNumber")
     private String phoneNumber;
+    //@Column(name = "department")
     private String department;
+    @Column(name = "isWorkingStatus")
     private boolean isWorkingStatus;
 
     public Employee(Integer id, String name, String phoneNumber, String department, boolean isWorkingStatus) {

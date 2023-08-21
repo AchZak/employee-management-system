@@ -55,10 +55,13 @@ public class EmployeeService {
         }
 
         Employee existingEmployee = optionalEmployee.get();
-        existingEmployee.setName(request.name());
-        existingEmployee.setPhoneNumber(request.phoneNumber());
-        existingEmployee.setDepartment(request.department());
-        existingEmployee.setWorkingStatus(request.isWorkingStatus());
+        existingEmployee.setName(request.name()); // Use getter and setter methods
+        existingEmployee.setPhoneNumber(request.phoneNumber()); // Use getter and setter methods
+        existingEmployee.setDepartment(request.department()); // Use getter and setter methods
+        existingEmployee.setWorkingStatus(request.isWorkingStatus()); // Use getter and setter methods
+
+        // Save the updated employee
+        employeeRepository.save(existingEmployee);
 
         return existingEmployee;
     }

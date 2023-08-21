@@ -6,6 +6,7 @@ import com.employeemanagementsystem.dto.UpdateEmployeeRequest;
 import com.employeemanagementsystem.entity.Employee;
 import com.employeemanagementsystem.service.EmployeeService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,24 +22,26 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public List<Employee> getAllEmployees() {
-        return employeeService.getAllEmployees();
+    public ResponseEntity<List<Employee>> getAllEmployees() {
+        List<Employee> employees = employeeService.getAllEmployees();
+        return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Employee addEmployee(@RequestBody NewEmployeeRequest request) {
-        return employeeService.addEmployee(request);
+    public ResponseEntity<Employee> addEmployee(@RequestBody NewEmployeeRequest request) {
+        Employee createdEmployee = employeeService.addEmployee(request);
+        return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteEmployee(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteEmployee(@PathVariable Integer id) {
         employeeService.deleteEmployee(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")
-    public Employee updateEmployee(@PathVariable Integer id, @RequestBody UpdateEmployeeRequest request) {
-        return employeeService.updateEmployee(id, request);
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Integer id, @RequestBody UpdateEmployeeRequest request) {
+        Employee updatedEmployee = employeeService.updateEmployee(id, request);
+        return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 }
