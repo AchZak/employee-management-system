@@ -39,7 +39,7 @@ public class EmployeeService {
         employee.setName(request.name());
         employee.setPhoneNumber(request.phoneNumber());
         employee.setDepartment(request.department());
-        employee.setWorkingStatus(request.isWorkingStatus());
+        employee.setCurrentlyWorking(request.isCurrentlyWorking());
 
         return employeeRepository.save(employee);
     }
@@ -58,7 +58,7 @@ public class EmployeeService {
         existingEmployee.setName(request.name()); // Use getter and setter methods
         existingEmployee.setPhoneNumber(request.phoneNumber()); // Use getter and setter methods
         existingEmployee.setDepartment(request.department()); // Use getter and setter methods
-        existingEmployee.setWorkingStatus(request.isWorkingStatus()); // Use getter and setter methods
+        existingEmployee.setCurrentlyWorking(request.isCurrentlyWorking()); // Use getter and setter methods
 
         // Save the updated employee
         employeeRepository.save(existingEmployee);

@@ -99,7 +99,7 @@ public class EmployeeServiceTest {
         assertEquals(request.name(), result.getName());
         assertEquals(request.phoneNumber(), result.getPhoneNumber());
         assertEquals(request.department(), result.getDepartment());
-        assertEquals(request.isWorkingStatus(), result.isWorkingStatus());
+        assertEquals(request.isCurrentlyWorking(), result.isCurrentlyWorking());
 
         // Verify that save was called with the updated employee
         verify(employeeRepository, times(1)).save(result);

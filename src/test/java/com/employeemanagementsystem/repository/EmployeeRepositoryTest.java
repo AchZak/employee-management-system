@@ -24,7 +24,7 @@ class EmployeeRepositoryTest {
         employee.setName("John Doe");
         employee.setPhoneNumber("123-456-7890");
         employee.setDepartment("HR");
-        employee.setWorkingStatus(true);
+        employee.setCurrentlyWorking(true);
 
         // When
         underTest.save(employee);

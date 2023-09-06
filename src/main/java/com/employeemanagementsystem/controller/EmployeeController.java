@@ -6,14 +6,13 @@ import com.employeemanagementsystem.dto.UpdateEmployeeRequest;
 import com.employeemanagementsystem.entity.Employee;
 import com.employeemanagementsystem.service.EmployeeService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/employees")
+@CrossOrigin
 public class EmployeeController {
 
     private final EmployeeService employeeService;

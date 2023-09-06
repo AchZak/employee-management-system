@@ -17,15 +17,15 @@ public class Employee {
     private String phoneNumber;
     //@Column(name = "department")
     private String department;
-    @Column(name = "isWorkingStatus")
-    private boolean isWorkingStatus;
+    @Column(name = "isCurrentlyWorking")
+    private boolean isCurrentlyWorking;
 
-    public Employee(Integer id, String name, String phoneNumber, String department, boolean isWorkingStatus) {
+    public Employee(Integer id, String name, String phoneNumber, String department, boolean isCurrentlyWorking) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.department = department;
         this.id = id;
-        this.isWorkingStatus = isWorkingStatus;
+        this.isCurrentlyWorking = isCurrentlyWorking;
     }
 
     public Employee() {
@@ -63,12 +63,12 @@ public class Employee {
         this.department = department;
     }
 
-    public boolean isWorkingStatus() {
-        return isWorkingStatus;
+    public boolean isCurrentlyWorking() {
+        return isCurrentlyWorking;
     }
 
-    public void setWorkingStatus(boolean workingStatus) {
-        isWorkingStatus = workingStatus;
+    public void setCurrentlyWorking(boolean currentlyWorking) {
+        isCurrentlyWorking = currentlyWorking;
     }
 
     @Override
@@ -76,12 +76,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return isWorkingStatus == employee.isWorkingStatus && Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(department, employee.department);
+        return isCurrentlyWorking == employee.isCurrentlyWorking && Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(phoneNumber, employee.phoneNumber) && Objects.equals(department, employee.department);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, phoneNumber, department, isWorkingStatus);
+        return Objects.hash(id, name, phoneNumber, department, isCurrentlyWorking);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", department='" + department + '\'' +
-                ", isWorkingStatus=" + isWorkingStatus +
+                ", isCurrentlyWorking=" + isCurrentlyWorking +
                 '}';
     }
 }

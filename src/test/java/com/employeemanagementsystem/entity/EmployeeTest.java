@@ -22,7 +22,7 @@ public class EmployeeTest {
         assertEquals("John Doe", underTest.getName());
         assertEquals("123-456-7890", underTest.getPhoneNumber());
         assertEquals("HR", underTest.getDepartment());
-        assertTrue(underTest.isWorkingStatus());
+        assertTrue(underTest.isCurrentlyWorking());
     }
 
     @Test
@@ -32,13 +32,13 @@ public class EmployeeTest {
         underTest.setName("Jane Smith");
         underTest.setPhoneNumber("987-654-3210");
         underTest.setDepartment("IT");
-        underTest.setWorkingStatus(false);
+        underTest.setCurrentlyWorking(false);
 
         assertEquals(2, underTest.getId());
         assertEquals("Jane Smith", underTest.getName());
         assertEquals("987-654-3210", underTest.getPhoneNumber());
         assertEquals("IT", underTest.getDepartment());
-        assertFalse(underTest.isWorkingStatus());
+        assertFalse(underTest.isCurrentlyWorking());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class EmployeeTest {
     @Test
     public void testToString() {
         // Test the toString method
-        String expectedToString = "Employee{id=1, name='John Doe', phoneNumber='123-456-7890', department='HR', isWorkingStatus=true}";
+        String expectedToString = "Employee{id=1, name='John Doe', phoneNumber='123-456-7890', department='HR', isCurrentlyWorking=true}";
         assertEquals(expectedToString, underTest.toString());
     }
 }
