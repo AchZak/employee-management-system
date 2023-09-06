@@ -47,11 +47,12 @@ class EmployeeControllerTest {
         when(employeeService.getAllEmployees()).thenReturn(employees);
 
         // When
-        ResponseEntity<List<Employee>> response = underTest.getAllEmployees();
+        List<Employee> response = underTest.getAllEmployees(); // Updated return type
+
 
         // Then
         assertNotNull(response);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(employees, response);
 
         // Verify that the service method was called
         verify(employeeService, times(1)).getAllEmployees();
@@ -68,13 +69,13 @@ class EmployeeControllerTest {
         when(employeeService.addEmployee(any(NewEmployeeRequest.class))).thenReturn(newEmployee);
 
         // When
-        ResponseEntity<Employee> responseEntity = underTest.addEmployee(newEmployeeRequest);
+        Employee response = underTest.addEmployee(newEmployeeRequest); // Updated return type
 
         // Then
-        assertNotNull(responseEntity);
-        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
-        assertNotNull(responseEntity.getBody());
-        assertEquals(newEmployee, responseEntity.getBody());
+        assertNotNull(response);
+        assertEquals(newEmployee, response); // Compare the expected Employee object with the returned Employee object
+
+        // Verify that the service method was called
         verify(employeeService).addEmployee(any(NewEmployeeRequest.class));
     }
 
@@ -87,11 +88,10 @@ class EmployeeControllerTest {
         doNothing().when(employeeService).deleteEmployee(employeeId);
 
         // When
-        ResponseEntity<Void> response = underTest.deleteEmployee(employeeId);
+        underTest.deleteEmployee(employeeId); // Updated return type (void)
 
         // Then
-        assertNotNull(response);
-        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        // Since the method returns void, there's no ResponseEntity to check
 
         // Verify that the service's deleteEmployee method was called
         verify(employeeService, times(1)).deleteEmployee(employeeId);
@@ -108,12 +108,13 @@ class EmployeeControllerTest {
         when(employeeService.updateEmployee(employeeId, request)).thenReturn(updatedEmployee);
 
         // When
-        ResponseEntity<Employee> response = underTest.updateEmployee(employeeId, request);
+        Employee response = underTest.updateEmployee(employeeId, request); // Updated return type
+
 
         // Then
         assertNotNull(response);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(updatedEmployee, response.getBody());
+        assertEquals(updatedEmployee, response); // Compare the expected Employee object with the returned Employee object
+
 
         // Verify that the service's updateEmployee method was called
         verify(employeeService, times(1)).updateEmployee(employeeId, request);
